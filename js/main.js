@@ -48,13 +48,7 @@ function initAdCarousel() {
   restart();
 }
 
-/* ---------- 首頁快速搜尋（導向總公司搜尋系統） ---------- */
-var SEARCH_URLS = {
-  buy: 'https://www.hbhousing.com.tw/buyhouse',
-  rent: 'https://www.hbhousing.com.tw/renthouse',
-  deal: 'https://www.hbhousing.com.tw/dealsearch'
-};
-
+/* ---------- 首頁快速搜尋（搜尋本站物件） ---------- */
 function initQuickSearch() {
   var box = document.querySelector('.searchbox');
   if (!box) return;
@@ -70,10 +64,22 @@ function initQuickSearch() {
     });
   });
 
-  var btn = box.querySelector('.btn-search');
-  btn.addEventListener('click', function () {
-    window.open(SEARCH_URLS[mode] || SEARCH_URLS.buy, '_blank');
-  });
+  function go() {
+    var area = document.getElementById('qs-area').value;
+    var q = document.getElementById('qs-q').value.trim();
+    var page = mode === 'rent' ? 'rent.html' : 'buy.html';
+    var params = new URLSearchParams();
+    if (area && area !== '不限') params.set('area', area);
+    if (q) params.set('q', q);
+    var qs = params.toString();
+    window.location.href = page + (qs ? '?' + qs : '');
+  }
+
+  box.querySelector('.btn-search').addEventListener('click', go);
+  var input = document.getElementById('qs-q');
+  if (input) {
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); });
+  }
 }
 
 /* ---------- 聯絡表單（組成 mailto 寄至店 Email） ---------- */

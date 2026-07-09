@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>地圖尋屋｜住商不動產承德京站店</title>
-<meta name="description" content="用地圖直覺找房！地圖找屋、地圖租屋、實價登錄地圖查詢，並提供住商不動產承德京站店位置資訊。">
+<meta name="description" content="用地圖直覺找房！在地圖上瀏覽住商不動產承德京站店的物件位置與門市資訊。">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
 
 <div class="topbar">
   <div class="container">
     <span>📞 服務專線：0911-107-769</span>
-    <span>✉️ <a href="mailto:shilin8359@gmail.com">shilin8359@gmail.com</a>｜<a href="https://www.hbhousing.com.tw/" target="_blank" rel="noopener">住商不動產總公司網站</a></span>
+    <span>✉️ <a href="mailto:shilin8359@gmail.com">shilin8359@gmail.com</a></span>
   </div>
 </div>
 
@@ -32,9 +33,9 @@
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">首頁</a></li>
-        <li><a href="https://www.hbhousing.com.tw/buyhouse" target="_blank" rel="noopener">買屋</a></li>
-        <li><a href="https://www.hbhousing.com.tw/dealsearch" target="_blank" rel="noopener">賣屋</a></li>
-        <li><a href="https://www.hbhousing.com.tw/renthouse" target="_blank" rel="noopener">租屋</a></li>
+        <li><a href="buy.html">買屋</a></li>
+        <li><a href="sell.html">賣屋</a></li>
+        <li><a href="rent.html">租屋</a></li>
         <li><a href="map.html" class="active">地圖尋屋</a></li>
         <li><a href="loan.html">房貸試算</a></li>
         <li><a href="recruit.html">徵才資訊</a></li>
@@ -46,63 +47,35 @@
 
 <div class="page-hero">
   <h1>地圖尋屋</h1>
-  <p>用地圖直覺找房，周邊環境、生活機能一目瞭然</p>
+  <p>在地圖上瀏覽物件位置，周邊環境一目瞭然</p>
 </div>
 
 <section class="block">
   <div class="container">
-    <div class="section-title">
-      <h2>選擇地圖找房工具</h2>
-      <p>連結住商不動產全國物件系統，資料即時更新</p>
+    <div class="sample-banner">
+      ⚠️ 地圖上的物件皆為<strong>網站示意範例</strong>，並非實際銷售/出租物件。實際物件請來電 0911-107-769 或<a href="contact.html">聯絡我們</a>洽詢。
     </div>
-    <div class="map-tools">
-      <div class="map-tool">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
-        </div>
-        <h3>地圖找屋（買屋）</h3>
-        <p>在地圖上瀏覽全國銷售中物件，可依區域、價格、格局篩選，快速鎖定理想地段的好屋。</p>
-        <a class="btn" href="https://www.hbhousing.com.tw/buyhouse/map" target="_blank" rel="noopener">開始地圖找屋</a>
-      </div>
-      <div class="map-tool">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="#008c46"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        </div>
-        <h3>地圖租屋</h3>
-        <p>用地圖搜尋出租物件，捷運站周邊、學區、商圈租屋一覽無遺，找到適合的租屋處。</p>
-        <a class="btn" href="https://www.hbhousing.com.tw/renthouse/map" target="_blank" rel="noopener">開始地圖租屋</a>
-      </div>
-      <div class="map-tool">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="#008c46"><path d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7-4h4v18h-4V3z"/></svg>
-        </div>
-        <h3>實價登錄地圖</h3>
-        <p>在地圖上查詢周邊成交行情與實價登錄資料，買屋出價、賣屋開價都有依據。</p>
-        <a class="btn" href="https://www.hbhousing.com.tw/dealsearch/map" target="_blank" rel="noopener">查詢成交行情</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="block alt">
-  <div class="container">
-    <div class="section-title">
-      <h2>本店位置</h2>
-      <p>台北市大同區承德路一段25號，歡迎蒞臨門市，專人為您服務</p>
+    <div class="filter-bar">
+      <select id="m-type">
+        <option value="">全部物件</option>
+        <option value="buy">銷售物件</option>
+        <option value="rent">出租物件</option>
+      </select>
+      <button class="btn" id="m-go">套用篩選</button>
+      <button class="btn outline" id="m-store">回到本店位置</button>
     </div>
-    <iframe class="store-map-embed"
-      src="https://maps.google.com/maps?q=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%90%8C%E5%8D%80%E6%89%BF%E5%BE%B7%E8%B7%AF%E4%B8%80%E6%AE%B525%E8%99%9F&z=16&output=embed"
-      loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      title="住商不動產承德京站店位置地圖"></iframe>
-    <p style="text-align:center; margin-top:24px;">
-      <a class="btn outline" href="https://www.google.com/maps/search/%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%90%8C%E5%8D%80%E6%89%BF%E5%BE%B7%E8%B7%AF%E4%B8%80%E6%AE%B525%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a>
+
+    <div id="listing-map"></div>
+    <p class="loan-note" style="margin-top:14px;">
+      🟢 綠色標記為本店位置｜點擊物件標記可查看名稱與價格。地圖資料 © OpenStreetMap 貢獻者。
     </p>
   </div>
 </section>
 
 <div class="cta-band">
-  <h2>找不到理想物件嗎？</h2>
-  <p>告訴我們您的需求，經紀人主動為您配對合適物件。</p>
+  <h2>想找特定區域的房子嗎？</h2>
+  <p>告訴我們您想住的區域與預算，經紀人為您留意合適物件。</p>
   <a class="btn big" href="contact.html">委託找屋</a>
 </div>
 
@@ -128,12 +101,12 @@
         </ul>
       </div>
       <div>
-        <h4>住商不動產</h4>
+        <h4>服務項目</h4>
         <ul>
-          <li><a href="https://www.hbhousing.com.tw/" target="_blank" rel="noopener">總公司官網</a></li>
-          <li><a href="https://www.hbhousing.com.tw/buyhouse" target="_blank" rel="noopener">全國物件搜尋</a></li>
-          <li><a href="https://www.hbhousing.com.tw/dealsearch" target="_blank" rel="noopener">實價登錄查詢</a></li>
-          <li><a href="https://www.hbhousing.com.tw/franchise" target="_blank" rel="noopener">全國服務據點</a></li>
+          <li><a href="buy.html">我要買屋</a></li>
+          <li><a href="sell.html">我要賣屋</a></li>
+          <li><a href="rent.html">我要租屋</a></li>
+          <li><a href="https://www.hbhousing.com.tw/" target="_blank" rel="noopener">住商不動產總公司</a></li>
         </ul>
       </div>
     </div>
@@ -144,5 +117,65 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/listings.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var STORE = { lat: 25.0512, lng: 121.5177, name: '住商不動產 承德京站店', addr: '台北市大同區承德路一段25號' };
+
+  var map = L.map('listing-map').setView([STORE.lat, STORE.lng], 15);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  /* 本店標記（綠色） */
+  var storeIcon = L.divIcon({
+    className: '',
+    html: '<svg width="36" height="36" viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" fill="#008c46" stroke="#fff" stroke-width="1.2"/><path d="M12 5.5 7.5 9.5h1.3v3.5h2.2v-2.4h2v2.4h2.2V9.5h1.3z" fill="#fff"/></svg>',
+    iconSize: [36, 36],
+    iconAnchor: [18, 34],
+    popupAnchor: [0, -30]
+  });
+  L.marker([STORE.lat, STORE.lng], { icon: storeIcon, zIndexOffset: 1000 })
+    .addTo(map)
+    .bindPopup('<div class="map-popup"><div class="p-title">' + STORE.name + '</div>' + STORE.addr + '<br>📞 0911-107-769</div>')
+    .openPopup();
+
+  /* 物件標記 */
+  var markers = [];
+  function drawListings(type) {
+    markers.forEach(function (m) { map.removeLayer(m); });
+    markers = [];
+    SAMPLE_LISTINGS.forEach(function (item) {
+      if (type && item.type !== type) return;
+      var color = item.type === 'buy' ? '#e67e22' : '#2980b9';
+      var label = item.type === 'buy' ? '售' : '租';
+      var icon = L.divIcon({
+        className: '',
+        html: '<div style="width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:' + color + ';border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);color:#fff;font-size:13px;font-weight:700;">' + label + '</span></div>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 28],
+        popupAnchor: [0, -24]
+      });
+      var priceText = item.price.toLocaleString('zh-TW') + ' ' + item.priceUnit;
+      var m = L.marker([item.lat, item.lng], { icon: icon }).addTo(map)
+        .bindPopup('<div class="map-popup"><div class="p-sample">⚠️ 示意範例，非實際物件</div>' +
+          '<div class="p-title">【範例】' + item.title + '</div>' +
+          item.address + '｜' + item.size + '<br>' +
+          '<span class="p-price">' + priceText + '</span></div>');
+      markers.push(m);
+    });
+  }
+  drawListings('');
+
+  document.getElementById('m-go').addEventListener('click', function () {
+    drawListings(document.getElementById('m-type').value);
+  });
+  document.getElementById('m-store').addEventListener('click', function () {
+    map.setView([STORE.lat, STORE.lng], 15);
+  });
+});
+</script>
 </body>
 </html>

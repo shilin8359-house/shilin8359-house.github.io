@@ -353,6 +353,89 @@ section.block.alt { background: var(--white); }
 }
 .card .price small { font-size: 13px; color: var(--ink-light); font-weight: 400; }
 
+.card .tag.sample {
+  left: auto;
+  right: 12px;
+  background: #c0392b;
+}
+
+/* 範例物件提示 */
+.sample-banner {
+  background: #fdecea;
+  border: 1px solid #f2b8b5;
+  color: #9c2f26;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 14px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+/* 物件列表篩選列 */
+.filter-bar {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.filter-bar select,
+.filter-bar input[type="text"] {
+  flex: 1 1 160px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+}
+.filter-bar .btn { border-radius: 6px; flex: 0 0 auto; }
+
+/* 自建互動地圖 */
+#listing-map {
+  height: 520px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 1;
+}
+.map-popup { font-size: 14px; line-height: 1.5; }
+.map-popup .p-title { font-weight: 700; }
+.map-popup .p-price { color: var(--brand-dark); font-weight: 700; }
+.map-popup .p-sample { color: #c0392b; font-size: 12px; }
+
+/* 賣屋流程 */
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  counter-reset: step;
+}
+.step {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 18px;
+  text-align: center;
+  position: relative;
+}
+.step .num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+.step h3 { font-size: 16px; margin-bottom: 6px; }
+.step p { font-size: 13px; color: var(--ink-light); }
+
 /* 縮圖底色（原創漸層，之後可換成實景照片） */
 .thumb-a { background: linear-gradient(135deg, #f2a25c, #d97b29); }
 .thumb-b { background: linear-gradient(135deg, #7fb3c8, #4a7f99); }

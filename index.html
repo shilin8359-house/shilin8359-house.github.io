@@ -13,7 +13,7 @@
 <div class="topbar">
   <div class="container">
     <span>📞 服務專線：0911-107-769</span>
-    <span>✉️ <a href="mailto:shilin8359@gmail.com">shilin8359@gmail.com</a>｜<a href="https://www.hbhousing.com.tw/" target="_blank" rel="noopener">住商不動產總公司網站</a></span>
+    <span>✉️ <a href="mailto:shilin8359@gmail.com">shilin8359@gmail.com</a></span>
   </div>
 </div>
 
@@ -34,9 +34,9 @@
     <nav class="main-nav">
       <ul>
         <li><a href="index.html" class="active">首頁</a></li>
-        <li><a href="https://www.hbhousing.com.tw/buyhouse" target="_blank" rel="noopener">買屋</a></li>
-        <li><a href="https://www.hbhousing.com.tw/dealsearch" target="_blank" rel="noopener">賣屋</a></li>
-        <li><a href="https://www.hbhousing.com.tw/renthouse" target="_blank" rel="noopener">租屋</a></li>
+        <li><a href="buy.html">買屋</a></li>
+        <li><a href="sell.html">賣屋</a></li>
+        <li><a href="rent.html">租屋</a></li>
         <li><a href="map.html">地圖尋屋</a></li>
         <li><a href="loan.html">房貸試算</a></li>
         <li><a href="recruit.html">徵才資訊</a></li>
@@ -57,20 +57,16 @@
       <div class="tabs">
         <button class="active" data-mode="buy">我要買屋</button>
         <button data-mode="rent">我要租屋</button>
-        <button data-mode="deal">實價登錄</button>
       </div>
       <div class="fields">
-        <select>
-          <option>台北市</option>
-          <option>新北市</option>
-        </select>
-        <select>
+        <select id="qs-area">
+          <option>不限</option>
           <option>大同區</option>
           <option>中山區</option>
           <option>中正區</option>
           <option>士林區</option>
         </select>
-        <input type="text" placeholder="輸入社區、路段或關鍵字">
+        <input type="text" id="qs-q" placeholder="輸入社區、路段或關鍵字">
         <button class="btn-search">搜尋</button>
       </div>
     </div>
@@ -115,56 +111,13 @@
   <div class="container">
     <div class="section-title">
       <h2>精選物件</h2>
-      <p>以下為範例格式，請替換為本店實際銷售物件（照片、標題、售價）</p>
     </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="thumb thumb-a">
-          <span class="tag">電梯大樓</span>
-          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
-        </div>
-        <div class="body">
-          <h3>京站商圈 高樓景觀三房</h3>
-          <div class="meta">台北市大同區承德路｜34.5坪｜3房2廳2衛</div>
-          <div class="price">2,980<small> 萬</small></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="thumb thumb-b">
-          <span class="tag">捷運宅</span>
-          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
-        </div>
-        <div class="body">
-          <h3>台北車站 溫馨兩房</h3>
-          <div class="meta">台北市中正區市民大道｜22.1坪｜2房2廳1衛</div>
-          <div class="price">1,880<small> 萬</small></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="thumb thumb-c">
-          <span class="tag">店面</span>
-          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
-        </div>
-        <div class="body">
-          <h3>承德路 金店面</h3>
-          <div class="meta">台北市大同區承德路｜28.7坪｜臨路寬</div>
-          <div class="price">4,500<small> 萬</small></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="thumb thumb-d">
-          <span class="tag">小資首選</span>
-          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
-        </div>
-        <div class="body">
-          <h3>中山雙連 精緻套房</h3>
-          <div class="meta">台北市中山區民生西路｜12.3坪｜1房1廳1衛</div>
-          <div class="price">980<small> 萬</small></div>
-        </div>
-      </div>
+    <div class="sample-banner">
+      ⚠️ 以下物件皆為<strong>網站示意範例</strong>，並非實際銷售物件。實際在售物件請來電 0911-107-769 或<a href="contact.html">聯絡我們</a>洽詢。
     </div>
+    <div class="card-grid" id="featured-grid"></div>
     <p style="text-align:center; margin-top:32px;">
-      <a class="btn big" href="https://www.hbhousing.com.tw/buyhouse" target="_blank" rel="noopener">查看更多物件（住商全國物件搜尋）</a>
+      <a class="btn big" href="buy.html">查看更多物件</a>
     </p>
   </div>
 </section>
@@ -177,17 +130,17 @@
       <p>買屋、賣屋、租屋，一次到位的專業服務</p>
     </div>
     <div class="service-grid">
-      <a class="service-item" href="https://www.hbhousing.com.tw/buyhouse" target="_blank" rel="noopener">
+      <a class="service-item" href="buy.html">
         <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg></div>
         <h3>我要買屋</h3>
-        <p>全國聯賣物件搜尋，找到理想好屋</p>
+        <p>在地精選物件，找到理想好屋</p>
       </a>
-      <a class="service-item" href="contact.html">
+      <a class="service-item" href="sell.html">
         <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M21 7h-6V5c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v2H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-10-2h2v2h-2V5z"/></svg></div>
         <h3>我要賣屋</h3>
         <p>免費估價，專業行銷快速成交</p>
       </a>
-      <a class="service-item" href="https://www.hbhousing.com.tw/renthouse" target="_blank" rel="noopener">
+      <a class="service-item" href="rent.html">
         <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
         <h3>我要租屋</h3>
         <p>優質租屋物件，安心承租</p>
@@ -202,10 +155,10 @@
         <h3>房貸試算</h3>
         <p>本息／本金攤還試算，掌握月付金</p>
       </a>
-      <a class="service-item" href="https://www.hbhousing.com.tw/dealsearch" target="_blank" rel="noopener">
+      <a class="service-item" href="https://lvr.land.moi.gov.tw/" target="_blank" rel="noopener">
         <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7-4h4v18h-4V3z"/></svg></div>
         <h3>實價登錄查詢</h3>
-        <p>成交行情透明查詢，買賣更安心</p>
+        <p>內政部實價登錄，行情透明安心</p>
       </a>
     </div>
   </div>
@@ -272,12 +225,12 @@
         </ul>
       </div>
       <div>
-        <h4>住商不動產</h4>
+        <h4>服務項目</h4>
         <ul>
-          <li><a href="https://www.hbhousing.com.tw/" target="_blank" rel="noopener">總公司官網</a></li>
-          <li><a href="https://www.hbhousing.com.tw/buyhouse" target="_blank" rel="noopener">全國物件搜尋</a></li>
-          <li><a href="https://www.hbhousing.com.tw/dealsearch" target="_blank" rel="noopener">實價登錄查詢</a></li>
-          <li><a href="https://www.hbhousing.com.tw/franchise" target="_blank" rel="noopener">全國服務據點</a></li>
+          <li><a href="buy.html">我要買屋</a></li>
+          <li><a href="sell.html">我要賣屋</a></li>
+          <li><a href="rent.html">我要租屋</a></li>
+          <li><a href="https://www.hbhousing.com.tw/" target="_blank" rel="noopener">住商不動產總公司</a></li>
         </ul>
       </div>
     </div>
@@ -288,5 +241,11 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/listings.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  renderListings(document.getElementById('featured-grid'), { type: 'buy', limit: 4 });
+});
+</script>
 </body>
 </html>
