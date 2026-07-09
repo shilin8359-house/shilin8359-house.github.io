@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shilin8359-house.github.io/sitemap.xml
