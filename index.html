@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="住商不動產承德京站店">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="住商不動產承德京站店｜台北大同區房仲 買屋賣屋租屋 免費估價">
-<meta property="og:description" content="深耕台北車站、京站商圈、大同區、中山區的在地房仲。買屋、賣屋、租屋、房貸試算、免費估價，服務專線 0911-107-769。">
+<meta property="og:description" content="深耕台北車站、京站商圈、大同區、中山區的在地房仲。AI 智慧尋屋、買屋、賣屋、租屋、房貸試算、免費估價，服務專線 0911-107-769。">
 <meta property="og:url" content="https://shilin8359-house.github.io/">
 <meta property="og:image" content="https://shilin8359-house.github.io/img/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -91,14 +91,90 @@
   </div>
 </header>
 
-<!-- Hero 主視覺 -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge"><span class="pulse"></span>AI 智慧尋屋 全新上線</div>
-    <h1>住商不動產 承德京站店<br><span class="grad-text">科技找房 × 在地服務</span></h1>
-    <p class="slogan">有心 最要緊 — 用一句話描述需求，AI 幫你快速配對理想好屋</p>
+<!-- 放射狀導覽主視覺 -->
+<div class="hub-hero">
+  <span class="p"></span><span class="p"></span><span class="p"></span>
+  <span class="p"></span><span class="p"></span><span class="p"></span>
 
-    <!-- AI 智慧尋屋助理 -->
+  <div class="hub-stage">
+    <!-- 樹枝連線 -->
+    <svg class="hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="50" y1="50" x2="50" y2="13"/>
+      <line x1="50" y1="50" x2="78" y2="24"/>
+      <line x1="50" y1="50" x2="89" y2="50"/>
+      <line x1="50" y1="50" x2="78" y2="76"/>
+      <line x1="50" y1="50" x2="50" y2="88"/>
+      <line x1="50" y1="50" x2="22" y2="76"/>
+      <line x1="50" y1="50" x2="11" y2="50"/>
+      <line x1="50" y1="50" x2="22" y2="24"/>
+    </svg>
+
+    <!-- 中心圓 -->
+    <div class="hub-center">
+      <h1 style="display:contents;">
+        <span class="c-brand">住商不動產</span>
+        <span class="c-store">承德京站店</span>
+      </h1>
+      <span class="c-slogan">有心 最要緊</span>
+    </div>
+
+    <!-- 分支節點 -->
+    <div class="hub-nodes">
+      <a class="hub-node ai" href="#ai-search" style="--x:50%; --y:13%;">
+        <span class="n-icon">🤖</span>
+        <span class="n-label">AI 智慧尋屋</span>
+        <span class="n-sub">SMART SEARCH</span>
+      </a>
+      <a class="hub-node" href="buy.html" style="--x:78%; --y:24%;">
+        <span class="n-icon">🏠</span>
+        <span class="n-label">買屋</span>
+        <span class="n-sub">BUY</span>
+      </a>
+      <a class="hub-node" href="sell.html" style="--x:89%; --y:50%;">
+        <span class="n-icon">💰</span>
+        <span class="n-label">賣屋</span>
+        <span class="n-sub">SELL</span>
+      </a>
+      <a class="hub-node" href="rent.html" style="--x:78%; --y:76%;">
+        <span class="n-icon">🔑</span>
+        <span class="n-label">租屋</span>
+        <span class="n-sub">RENT</span>
+      </a>
+      <a class="hub-node" href="map.html" style="--x:50%; --y:88%;">
+        <span class="n-icon">🗺️</span>
+        <span class="n-label">地圖尋屋</span>
+        <span class="n-sub">MAP</span>
+      </a>
+      <a class="hub-node" href="loan.html" style="--x:22%; --y:76%;">
+        <span class="n-icon">🧮</span>
+        <span class="n-label">房貸試算</span>
+        <span class="n-sub">LOAN</span>
+      </a>
+      <a class="hub-node" href="law.html" style="--x:11%; --y:50%;">
+        <span class="n-icon">📚</span>
+        <span class="n-label">法規分享</span>
+        <span class="n-sub">LAW</span>
+      </a>
+      <a class="hub-node" href="contact.html" style="--x:22%; --y:24%;">
+        <span class="n-icon">📞</span>
+        <span class="n-label">聯絡我們</span>
+        <span class="n-sub">CONTACT</span>
+      </a>
+    </div>
+
+  </div>
+
+  <a class="hub-scroll-hint" href="#ai-search">▼ 往下體驗 AI 智慧尋屋</a>
+</div>
+
+<!-- AI 智慧尋屋 -->
+<section class="ai-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>AI 智慧尋屋</h2>
+      <p>用一句話描述需求，AI 立刻為你比對物件</p>
+    </div>
+
     <div class="ai-panel" id="ai-search">
       <div class="ai-head">
         <div class="ai-orb" aria-hidden="true"></div>
@@ -119,168 +195,14 @@
       <div class="ai-note">＊AI 助理在您的瀏覽器中解析條件並比對站內「示意範例物件」，非實際在售物件；實際物件請洽 0911-107-769。</div>
     </div>
 
-    <div class="hero-features">
-      <span>⚡ AI 條件解析</span>
-      <span>🗺️ 互動地圖找房</span>
-      <span>📊 即時房貸試算</span>
-      <span>🏠 在地經紀人服務</span>
-    </div>
-  </div>
-  <svg class="skyline" viewBox="0 0 1200 120" preserveAspectRatio="none" height="90">
-    <path d="M0 120 V70 H60 V40 H120 V80 H180 V25 H240 V65 H320 V45 H380 V90 H450 V15 H520 V60 H600 V35 H660 V75 H740 V50 H800 V20 H870 V70 H940 V40 H1010 V85 H1080 V55 H1140 V30 H1200 V120 Z" fill="#0a2033"/>
-  </svg>
-</div>
-
-<!-- 廣告輪播 -->
-<section class="block">
-  <div class="container">
-    <div class="ad-carousel">
-      <div class="ad-slide ad-1 active">
-        <div>
-          <h3>免費到府估價</h3>
-          <p>想知道您的房子現在值多少？專業經紀人免費為您估價，快速掌握行情。</p>
-        </div>
-        <a class="ad-cta" href="contact.html">立即預約</a>
-      </div>
-      <div class="ad-slide ad-2">
-        <div>
-          <h3>委託銷售 專案優惠中</h3>
-          <p>本店委託銷售專案進行中，完整行銷曝光 × 在地買方資料庫，快速成交。</p>
-        </div>
-        <a class="ad-cta" href="contact.html">了解詳情</a>
-      </div>
-      <div class="ad-slide ad-3">
-        <div>
-          <h3>加入住商團隊</h3>
-          <p>不動產經紀人熱烈招募中，完整培訓、高額獎金制度，歡迎新人與資深好手。</p>
-        </div>
-        <a class="ad-cta" href="recruit.html">查看職缺</a>
-      </div>
-      <div class="ad-dots"></div>
-    </div>
-  </div>
-</section>
-
-<!-- 精選物件 -->
-<section class="block alt">
-  <div class="container">
-    <div class="section-title">
-      <h2>精選物件</h2>
-    </div>
-    <div class="sample-banner">
-      ⚠️ 以下物件皆為<strong>網站示意範例</strong>，並非實際銷售物件。實際在售物件請來電 0911-107-769 或<a href="contact.html">聯絡我們</a>洽詢。
-    </div>
-    <div class="card-grid" id="featured-grid"></div>
-    <p style="text-align:center; margin-top:32px;">
-      <a class="btn big" href="buy.html">查看更多物件</a>
+    <p class="seo-note">
+      住商不動產承德京站店位於<strong>台北市大同區承德路一段25號</strong>，緊鄰台北車站與京站時尚廣場，
+      服務大同區、中山區、中正區、士林區。想<a href="buy.html">買屋</a>、<a href="sell.html">賣屋免費估價</a>、
+      <a href="rent.html">租屋</a>，或先用<a href="loan.html">房貸試算</a>抓預算、看<a href="law.html">房產法規重點</a>，
+      歡迎來電 <strong>0911-107-769</strong> 或<a href="contact.html">線上諮詢</a>。
     </p>
   </div>
 </section>
-
-<!-- 服務項目 -->
-<section class="block">
-  <div class="container">
-    <div class="section-title">
-      <h2>服務項目</h2>
-      <p>買屋、賣屋、租屋，一次到位的專業服務</p>
-    </div>
-    <div class="service-grid">
-      <a class="service-item ai-featured" href="#ai-search">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#00d69c"><path d="M12 2a2 2 0 0 1 2 2v1.1a7 7 0 0 1 5 6.9v4l2 3H3l2-3v-4a7 7 0 0 1 5-6.9V4a2 2 0 0 1 2-2zm-3 18h6a3 3 0 0 1-6 0zm0-8.5A1.5 1.5 0 1 0 9 14.5 1.5 1.5 0 0 0 9 11.5zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></div>
-        <h3>AI 智慧尋屋</h3>
-        <p>一句話描述需求，AI 即時配對物件</p>
-      </a>
-      <a class="service-item" href="buy.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg></div>
-        <h3>我要買屋</h3>
-        <p>在地精選物件，找到理想好屋</p>
-      </a>
-      <a class="service-item" href="sell.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M21 7h-6V5c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v2H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-10-2h2v2h-2V5z"/></svg></div>
-        <h3>我要賣屋</h3>
-        <p>免費估價，專業行銷快速成交</p>
-      </a>
-      <a class="service-item" href="rent.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
-        <h3>我要租屋</h3>
-        <p>優質租屋物件，安心承租</p>
-      </a>
-      <a class="service-item" href="map.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg></div>
-        <h3>地圖尋屋</h3>
-        <p>用地圖直覺找房，一目瞭然</p>
-      </a>
-      <a class="service-item" href="loan.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M7 2h10c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm0 4h10V4H7v2zm0 4h4v-2H7v2zm6 0h4v-2h-4v2zm-6 4h4v-2H7v2zm6 0h4v-2h-4v2zm-6 4h4v-2H7v2zm6 0h4v-2h-4v2z"/></svg></div>
-        <h3>房貸試算</h3>
-        <p>本息／本金攤還試算，掌握月付金</p>
-      </a>
-      <a class="service-item" href="law.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 3 4 6v6c0 4.4 3.2 8.4 8 9 4.8-.6 8-4.6 8-9V6l-8-3zm-1 13-3.5-3.5 1.4-1.4L11 13.2l4.6-4.6 1.4 1.4L11 16z"/></svg></div>
-        <h3>法規分享</h3>
-        <p>房貸、贈與、繼承重點法規一次看</p>
-      </a>
-      <a class="service-item" href="https://lvr.land.moi.gov.tw/" target="_blank" rel="noopener">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7-4h4v18h-4V3z"/></svg></div>
-        <h3>實價登錄查詢</h3>
-        <p>內政部實價登錄，行情透明安心</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 為什麼選擇我們 -->
-<section class="block alt">
-  <div class="container">
-    <div class="section-title">
-      <h2>為什麼選擇承德京站店</h2>
-    </div>
-    <div class="service-grid">
-      <div class="service-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/></svg></div>
-        <h3>品牌保障</h3>
-        <p>住商不動產全國連鎖品牌，交易安全有保障</p>
-      </div>
-      <div class="service-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg></div>
-        <h3>在地深耕</h3>
-        <p>熟悉京站、大同、中山商圈行情與生活機能</p>
-      </div>
-      <div class="service-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1 15-5-5 1.4-1.4L11 14.2l6.6-6.6L19 9l-8 8z"/></svg></div>
-        <h3>成交保證制度</h3>
-        <p>依總公司服務保障制度，買賣流程透明安心</p>
-      </div>
-      <div class="service-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
-        <h3>全程專人服務</h3>
-        <p>從看屋、斡旋到交屋，專屬經紀人一路相伴</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 在地深耕介紹 -->
-<section class="block">
-  <div class="container" style="max-width:860px;">
-    <div class="section-title">
-      <h2>深耕京站商圈的在地房仲</h2>
-    </div>
-    <p style="color:#555; margin-bottom:14px;">
-      住商不動產承德京站店位於<strong>台北市大同區承德路一段25號</strong>，緊鄰台北車站、京站時尚廣場與捷運淡水信義線，服務範圍涵蓋<strong>大同區、中山區、中正區、士林區</strong>。無論是台北車站周邊的電梯大樓、雙連與中山站的捷運宅、大稻埕迪化街的店面與華廈，我們的在地經紀人都熟悉每個巷弄的行情與生活機能。
-    </p>
-    <p style="color:#555;">
-      想在大同區<a href="buy.html">買房子</a>、為承德路的房子<a href="sell.html">免費估價</a>、或尋找中山區的<a href="rent.html">租屋物件</a>，歡迎來電 <strong>0911-107-769</strong> 或<a href="contact.html">線上諮詢</a>。購屋前也可以先用<a href="loan.html">房貸試算工具</a>估算每月月付金，讓買屋預算更有把握。
-    </p>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta-band">
-  <h2>想賣房子？先知道值多少！</h2>
-  <p>留下資料，專業經紀人將盡快與您聯繫，提供免費估價服務。</p>
-  <a class="btn big" href="contact.html">免費估價諮詢</a>
-</div>
 
 <!-- 頁尾 -->
 <footer class="site-footer">
@@ -325,10 +247,5 @@
 <script src="js/main.js"></script>
 <script src="js/listings.js"></script>
 <script src="js/ai-search.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  renderListings(document.getElementById('featured-grid'), { type: 'buy', limit: 4 });
-});
-</script>
 </body>
 </html>
