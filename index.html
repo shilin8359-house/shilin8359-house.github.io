@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>住商不動產承德京站店｜台北大同區房仲 買屋賣屋租屋 免費估價</title>
-<meta name="description" content="住商不動產承德京站店，深耕台北車站、京站商圈、大同區、中山區在地房仲服務。買屋、賣屋、租屋、地圖找房、房貸試算、免費到府估價。服務專線 0911-107-769。">
+<meta name="description" content="住商不動產承德京站店，深耕台北車站、京站商圈、大同區、中山區在地房仲服務。AI 智慧尋屋、買屋、賣屋、租屋、地圖找房、房貸試算、免費到府估價。服務專線 0911-107-769。">
 <meta name="google-site-verification" content="2E9P9zm_xMKo0KnY7ZZOQTcaZih3S54ZH4eTeVI4Iqw" />
 <link rel="canonical" href="https://shilin8359-house.github.io/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -77,6 +77,7 @@
     <nav class="main-nav">
       <ul>
         <li><a href="index.html" class="active">首頁</a></li>
+        <li><a href="#ai-search" class="nav-ai">AI 尋屋</a></li>
         <li><a href="buy.html">買屋</a></li>
         <li><a href="sell.html">賣屋</a></li>
         <li><a href="rent.html">租屋</a></li>
@@ -92,30 +93,40 @@
 <!-- Hero 主視覺 -->
 <div class="hero">
   <div class="hero-inner">
-    <h1>住商不動產 承德京站店</h1>
-    <p class="slogan">有心 最要緊 — 深耕京站商圈，您在地的購屋好夥伴</p>
+    <div class="hero-badge"><span class="pulse"></span>AI 智慧尋屋 全新上線</div>
+    <h1>住商不動產 承德京站店<br><span class="grad-text">科技找房 × 在地服務</span></h1>
+    <p class="slogan">有心 最要緊 — 用一句話描述需求，AI 幫你快速配對理想好屋</p>
 
-    <!-- 快速搜尋 -->
-    <div class="searchbox">
-      <div class="tabs">
-        <button class="active" data-mode="buy">我要買屋</button>
-        <button data-mode="rent">我要租屋</button>
+    <!-- AI 智慧尋屋助理 -->
+    <div class="ai-panel" id="ai-search">
+      <div class="ai-head">
+        <div class="ai-orb" aria-hidden="true"></div>
+        <div class="ai-title">AI 智慧尋屋助理<span class="beta">BETA</span></div>
+        <div class="ai-status">● 線上</div>
       </div>
-      <div class="fields">
-        <select id="qs-area">
-          <option>不限</option>
-          <option>大同區</option>
-          <option>中山區</option>
-          <option>中正區</option>
-          <option>士林區</option>
-        </select>
-        <input type="text" id="qs-q" placeholder="輸入社區、路段或關鍵字">
-        <button class="btn-search">搜尋</button>
+      <div class="ai-log" id="ai-log" aria-live="polite"></div>
+      <div class="ai-chips" id="ai-chips">
+        <button type="button">大同區 3000萬內 3房</button>
+        <button type="button">中山區 近捷運 租屋</button>
+        <button type="button">京站周邊 套房</button>
+        <button type="button">有車位的兩房</button>
       </div>
+      <div class="ai-inputrow">
+        <input type="text" id="ai-input" placeholder="描述你的需求，例如：想在大同區找 3000 萬以內的三房" aria-label="輸入找房需求">
+        <button type="button" id="ai-send">送出 ➤</button>
+      </div>
+      <div class="ai-note">＊AI 助理在您的瀏覽器中解析條件並比對站內「示意範例物件」，非實際在售物件；實際物件請洽 0911-107-769。</div>
+    </div>
+
+    <div class="hero-features">
+      <span>⚡ AI 條件解析</span>
+      <span>🗺️ 互動地圖找房</span>
+      <span>📊 即時房貸試算</span>
+      <span>🏠 在地經紀人服務</span>
     </div>
   </div>
   <svg class="skyline" viewBox="0 0 1200 120" preserveAspectRatio="none" height="90">
-    <path d="M0 120 V70 H60 V40 H120 V80 H180 V25 H240 V65 H320 V45 H380 V90 H450 V15 H520 V60 H600 V35 H660 V75 H740 V50 H800 V20 H870 V70 H940 V40 H1010 V85 H1080 V55 H1140 V30 H1200 V120 Z" fill="#043d1f"/>
+    <path d="M0 120 V70 H60 V40 H120 V80 H180 V25 H240 V65 H320 V45 H380 V90 H450 V15 H520 V60 H600 V35 H660 V75 H740 V50 H800 V20 H870 V70 H940 V40 H1010 V85 H1080 V55 H1140 V30 H1200 V120 Z" fill="#0a2033"/>
   </svg>
 </div>
 
@@ -173,6 +184,11 @@
       <p>買屋、賣屋、租屋，一次到位的專業服務</p>
     </div>
     <div class="service-grid">
+      <a class="service-item ai-featured" href="#ai-search">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="#00d69c"><path d="M12 2a2 2 0 0 1 2 2v1.1a7 7 0 0 1 5 6.9v4l2 3H3l2-3v-4a7 7 0 0 1 5-6.9V4a2 2 0 0 1 2-2zm-3 18h6a3 3 0 0 1-6 0zm0-8.5A1.5 1.5 0 1 0 9 14.5 1.5 1.5 0 0 0 9 11.5zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></div>
+        <h3>AI 智慧尋屋</h3>
+        <p>一句話描述需求，AI 即時配對物件</p>
+      </a>
       <a class="service-item" href="buy.html">
         <div class="icon"><svg viewBox="0 0 24 24" fill="#008c46"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg></div>
         <h3>我要買屋</h3>
@@ -276,6 +292,7 @@
       <div>
         <h4>快速連結</h4>
         <ul>
+          <li><a href="index.html#ai-search">AI 智慧尋屋</a></li>
           <li><a href="map.html">地圖尋屋</a></li>
           <li><a href="loan.html">房貸試算</a></li>
           <li><a href="recruit.html">徵才資訊</a></li>
@@ -300,6 +317,7 @@
 
 <script src="js/main.js"></script>
 <script src="js/listings.js"></script>
+<script src="js/ai-search.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   renderListings(document.getElementById('featured-grid'), { type: 'buy', limit: 4 });

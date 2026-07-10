@@ -118,9 +118,35 @@ function initContactForm() {
   });
 }
 
+/* ---------- 滾動進場動畫 ---------- */
+function initReveal() {
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll(
+    '.service-item, .card, .step, .map-tool, .job-card, .benefit, .section-title'
+  );
+  if (!targets.length) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  targets.forEach(function (t, i) {
+    t.classList.add('reveal');
+    t.style.transitionDelay = (i % 4) * 0.07 + 's';
+    io.observe(t);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   initNav();
   initAdCarousel();
   initQuickSearch();
   initContactForm();
+  initReveal();
 });
