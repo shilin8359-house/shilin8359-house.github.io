@@ -5,8 +5,8 @@
 (function () {
   'use strict';
 
-  var AREAS = ['大同', '中山', '中正', '士林'];
-  var KEYWORDS = ['捷運', '店面', '套房', '車位', '電梯', '學區', '景觀', '裝潢', '辦公'];
+  var AREAS = ['松山', '大同', '中山', '中正', '士林'];
+  var KEYWORDS = ['捷運', '店面', '套房', '車位', '電梯', '學區', '景觀', '河景', '裝潢', '辦公'];
 
   var CN_NUM = { '一': 1, '兩': 2, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9 };
 
@@ -149,9 +149,13 @@
   }
 
   function resultCardHTML(item) {
-    return '<a class="ai-result" href="' + (item.type === 'rent' ? 'rent.html' : 'buy.html') +
-      '?area=' + encodeURIComponent(item.area) + '">' +
-      '<div class="r-title">' + item.title + '<span class="r-sample">示意範例</span></div>' +
+    var href = item.href || ((item.type === 'rent' ? 'rent.html' : 'buy.html') +
+      '?area=' + encodeURIComponent(item.area));
+    var badge = item.real
+      ? '<span class="r-sample" style="color:#5ee8ae; border-color:rgba(0,214,156,.6);">精選物件</span>'
+      : '<span class="r-sample">示意範例</span>';
+    return '<a class="ai-result" href="' + href + '">' +
+      '<div class="r-title">' + item.title + badge + '</div>' +
       '<div class="r-meta">' + item.area + '｜' + item.size + '｜' + item.layout + '</div>' +
       '<div class="r-price">' + item.price.toLocaleString('zh-TW') +
       '<small> ' + item.priceUnit + '</small></div>' +
@@ -177,7 +181,7 @@
       addMsg('bot',
         '我理解的條件是：<strong>' + describeCond(cond) + '</strong>' +
         (results.length
-          ? '，為你找到 <strong>' + results.length + '</strong> 筆符合的範例物件 👇'
+          ? '，為你找到 <strong>' + results.length + '</strong> 筆符合的物件 👇'
           : '。'));
 
       if (results.length) {

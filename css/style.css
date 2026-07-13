@@ -971,6 +971,266 @@ section.block.alt { background: var(--white); }
   background: #c0392b;
 }
 
+/* 真實物件卡片（照片縮圖 + 精選標籤 + 整卡可點） */
+a.card { color: var(--ink); }
+a.card:hover { color: var(--ink); }
+a.card h3 { color: var(--ink); }
+.card .thumb.photo {
+  background-size: cover;
+  background-position: center;
+}
+.card .thumb.photo::after { content: none; }
+.card .tag.featured {
+  left: auto;
+  right: 12px;
+  background: var(--grad);
+  font-weight: 700;
+}
+
+/* ---------- 物件詳情頁 ---------- */
+.breadcrumb {
+  font-size: 13.5px;
+  color: var(--ink-light);
+  margin-bottom: 18px;
+}
+.breadcrumb span { color: var(--ink); font-weight: 600; }
+
+.prop-layout {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 26px;
+  align-items: start;
+  margin-bottom: 34px;
+}
+.prop-gallery .g-main {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #0d1b2e;
+}
+.prop-gallery .g-main img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+.g-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.g-thumbs button {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  transition: .2s;
+}
+.g-thumbs button img {
+  width: 100%;
+  height: 62px;
+  object-fit: cover;
+  display: block;
+}
+.g-thumbs button:hover { border-color: rgba(0, 190, 130, .5); }
+.g-thumbs button.active { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(0, 190, 130, .25); }
+
+.prop-info {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+.prop-info .p-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.prop-info .p-badges span {
+  font-size: 12.5px;
+  color: var(--brand-dark);
+  background: var(--brand-pale);
+  border: 1px solid rgba(0, 154, 85, .3);
+  border-radius: 999px;
+  padding: 3px 12px;
+}
+.prop-info .p-price {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.2;
+}
+.prop-info .p-price small { font-size: 17px; color: var(--ink-light); font-weight: 400; }
+.prop-info .p-price-note {
+  font-size: 13px;
+  color: var(--ink-light);
+  margin-bottom: 14px;
+}
+table.p-facts {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+table.p-facts th, table.p-facts td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+table.p-facts th {
+  color: var(--ink-light);
+  font-weight: 600;
+  white-space: nowrap;
+  width: 88px;
+}
+table.p-facts tr:last-child th,
+table.p-facts tr:last-child td { border-bottom: none; }
+.prop-info .p-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prop-info .p-cta .btn { text-align: center; }
+.prop-info .p-ref {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-top: 12px;
+  text-align: center;
+}
+
+.prop-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-bottom: 34px;
+}
+.pd-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--brand);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 22px;
+}
+.pd-card h2 {
+  font-size: 19px;
+  margin-bottom: 14px;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+.pd-list {
+  list-style: none;
+  font-size: 14.5px;
+  color: var(--ink-light);
+}
+.pd-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.pd-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+}
+.prop-map h2 {
+  font-size: 19px;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+/* 首頁精選物件橫幅 */
+.featured-listing {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  transition: .25s;
+  color: var(--ink);
+}
+.featured-listing:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover), 0 0 0 1px rgba(0, 190, 130, .4);
+  color: var(--ink);
+}
+.featured-listing .fl-img {
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.featured-listing .fl-img .tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--grad);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 14px;
+  letter-spacing: 1px;
+}
+.featured-listing .fl-body {
+  padding: 30px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.featured-listing .fl-body h3 { font-size: 24px; letter-spacing: 1px; margin-bottom: 8px; }
+.featured-listing .fl-body .fl-meta {
+  font-size: 14.5px;
+  color: var(--ink-light);
+  margin-bottom: 14px;
+}
+.featured-listing .fl-points {
+  list-style: none;
+  font-size: 14px;
+  color: var(--ink-light);
+  margin-bottom: 16px;
+}
+.featured-listing .fl-points li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 5px;
+}
+.featured-listing .fl-points li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+  font-weight: 700;
+}
+.featured-listing .fl-price {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--brand);
+}
+.featured-listing .fl-price small { font-size: 14px; color: var(--ink-light); font-weight: 400; }
+.featured-listing .fl-more {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+@media (max-width: 900px) {
+  .prop-layout { grid-template-columns: 1fr; }
+  .prop-gallery .g-main img { height: 300px; }
+  .featured-listing { grid-template-columns: 1fr; }
+  .featured-listing .fl-img { min-height: 220px; }
+}
+
 /* 範例物件提示 */
 .sample-banner {
   background: #fdecea;

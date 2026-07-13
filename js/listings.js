@@ -1,8 +1,14 @@
-/* 住商不動產 承德京站店 — 示意範例物件資料與渲染
-   ※ 以下物件皆為網站示意範例（非實際銷售/出租物件），
-     上架真實物件時請替換本檔案內容並移除 sample 標記。 */
+/* 住商不動產 承德京站店 — 物件資料與渲染
+   ※ real: true 的物件為本店實際銷售物件（有專屬介紹頁 href）；
+     其餘為網站示意範例（非實際銷售/出租物件）。 */
 
 var SAMPLE_LISTINGS = [
+  /* ---- 精選在售物件（真實委託） ---- */
+  { type: 'buy', real: true, href: 'yangsheng.html',
+    title: '揚昇君苑 高樓河景美三房', area: '松山區', address: '台北市松山區松河街168號',
+    size: '85.52坪', layout: '3房2廳3衛', price: 10800, priceUnit: '萬', tag: '河景第一排',
+    img: 'img/揚升/S__15515759.jpg', lat: 25.0516, lng: 121.5734 },
+
   /* ---- 買屋範例 ---- */
   { type: 'buy', title: '京站商圈 高樓景觀三房', area: '大同區', address: '台北市大同區承德路一段', size: '34.5坪', layout: '3房2廳2衛', price: 2980, priceUnit: '萬', tag: '電梯大樓', thumb: 'thumb-a', lat: 25.0498, lng: 121.5170 },
   { type: 'buy', title: '台北車站 溫馨兩房', area: '中正區', address: '台北市中正區市民大道一段', size: '22.1坪', layout: '2房2廳1衛', price: 1880, priceUnit: '萬', tag: '捷運宅', thumb: 'thumb-b', lat: 25.0468, lng: 121.5140 },
@@ -21,19 +27,29 @@ var SAMPLE_LISTINGS = [
 var HOUSE_SVG = '<svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>';
 
 function listingCardHTML(item) {
-  return '' +
-    '<div class="card">' +
-      '<div class="thumb ' + item.thumb + '">' +
-        '<span class="tag">' + item.tag + '</span>' +
-        '<span class="tag sample">示意範例</span>' +
-        HOUSE_SVG +
-      '</div>' +
-      '<div class="body">' +
-        '<h3>【範例】' + item.title + '</h3>' +
-        '<div class="meta">' + item.address + '｜' + item.size + '｜' + item.layout + '</div>' +
-        '<div class="price">' + item.price.toLocaleString('zh-TW') + '<small> ' + item.priceUnit + '</small></div>' +
-      '</div>' +
+  var thumb;
+  if (item.img) {
+    thumb = '<div class="thumb photo" style="background-image:url(\'' + item.img + '\')">' +
+      '<span class="tag">' + item.tag + '</span>' +
+      (item.real ? '<span class="tag featured">精選物件</span>' : '') +
+      '</div>';
+  } else {
+    thumb = '<div class="thumb ' + item.thumb + '">' +
+      '<span class="tag">' + item.tag + '</span>' +
+      '<span class="tag sample">示意範例</span>' +
+      HOUSE_SVG +
+      '</div>';
+  }
+  var inner = thumb +
+    '<div class="body">' +
+      '<h3>' + (item.real ? '' : '【範例】') + item.title + '</h3>' +
+      '<div class="meta">' + item.address + '｜' + item.size + '｜' + item.layout + '</div>' +
+      '<div class="price">' + item.price.toLocaleString('zh-TW') + '<small> ' + item.priceUnit + '</small></div>' +
     '</div>';
+  if (item.href) {
+    return '<a class="card" href="' + item.href + '">' + inner + '</a>';
+  }
+  return '<div class="card">' + inner + '</div>';
 }
 
 /* 渲染物件卡片。options: { type, area, q, limit } */

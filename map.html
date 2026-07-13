@@ -67,7 +67,7 @@
 <section class="block">
   <div class="container">
     <div class="sample-banner">
-      ⚠️ 地圖上的物件皆為<strong>網站示意範例</strong>，並非實際銷售/出租物件。實際物件請來電 0911-107-769 或<a href="contact.html">聯絡我們</a>洽詢。
+      ⚠️ 標示「<strong>精選物件</strong>」者為本店實際銷售物件；其餘為<strong>網站示意範例</strong>，並非實際銷售/出租物件。更多物件請來電 0911-107-769 或<a href="contact.html">聯絡我們</a>洽詢。
     </div>
 
     <div class="filter-bar">
@@ -175,11 +175,21 @@ document.addEventListener('DOMContentLoaded', function () {
         popupAnchor: [0, -24]
       });
       var priceText = item.price.toLocaleString('zh-TW') + ' ' + item.priceUnit;
-      var m = L.marker([item.lat, item.lng], { icon: icon }).addTo(map)
-        .bindPopup('<div class="map-popup"><div class="p-sample">⚠️ 示意範例，非實際物件</div>' +
+      var popup;
+      if (item.real) {
+        popup = '<div class="map-popup"><div style="color:#008c46; font-size:12px; font-weight:700;">★ 精選物件（實際銷售中）</div>' +
+          '<div class="p-title">' + item.title + '</div>' +
+          item.address + '｜' + item.size + '<br>' +
+          '<span class="p-price">' + priceText + '</span>' +
+          (item.href ? '<br><a href="' + item.href + '">查看完整介紹 →</a>' : '') + '</div>';
+      } else {
+        popup = '<div class="map-popup"><div class="p-sample">⚠️ 示意範例，非實際物件</div>' +
           '<div class="p-title">【範例】' + item.title + '</div>' +
           item.address + '｜' + item.size + '<br>' +
-          '<span class="p-price">' + priceText + '</span></div>');
+          '<span class="p-price">' + priceText + '</span></div>';
+      }
+      var m = L.marker([item.lat, item.lng], { icon: icon }).addTo(map)
+        .bindPopup(popup);
       markers.push(m);
     });
   }
