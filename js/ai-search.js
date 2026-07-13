@@ -1,6 +1,6 @@
 /* 住商不動產 承德京站店 — AI 智慧尋屋助理
    於瀏覽器端解析使用者的自然語言需求（區域／預算／房數／關鍵字），
-   即時比對站內示意範例物件（SAMPLE_LISTINGS，定義於 listings.js）。 */
+   即時比對站內物件（SAMPLE_LISTINGS，定義於 listings.js）。 */
 
 (function () {
   'use strict';
@@ -171,8 +171,8 @@
 
       if (!cond.recognized) {
         addMsg('bot', '想更精準幫你找房，可以告訴我<strong>區域、預算、房數</strong>或' +
-          '<strong>關鍵字</strong>（捷運、車位、電梯…），例如：' +
-          '「<em>中山區 近捷運 3 萬以內租屋</em>」。');
+          '<strong>關鍵字</strong>（捷運、車位、河景…），例如：' +
+          '「<em>松山區 河景 三房</em>」。');
         return;
       }
 
@@ -194,7 +194,7 @@
           (cond.mode === 'rent' ? '租屋頁' : '買屋頁') + '</a>，' +
           '或直接來電 <strong>0911-107-769</strong>，由在地經紀人為你服務！');
       } else {
-        addMsg('bot', '目前站上沒有完全符合的範例物件，' +
+        addMsg('bot', '目前站上沒有完全符合的物件，' +
           '但我們的經紀人手上物件更多！歡迎<a href="contact.html" style="color:#4ef0b6; font-weight:700;">留下需求</a>' +
           '或來電 <strong>0911-107-769</strong>，讓專人為你配對。');
       }
@@ -230,7 +230,7 @@
     /* 開場訊息 */
     setTimeout(function () {
       addMsg('bot', '你好！我是承德京站店的 <strong>AI 尋屋助理</strong> 🤖<br>' +
-        '用一句話描述需求，例如「<em>大同區 3000 萬以內的三房</em>」，我立刻為你比對站內物件。');
+        '用一句話描述需求，例如「<em>松山區 河景三房</em>」，我立刻為你比對站內物件。');
     }, 400);
   }
 
