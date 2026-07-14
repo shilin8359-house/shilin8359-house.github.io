@@ -1645,6 +1645,34 @@ table.amort th:first-child, table.amort td:first-child { text-align: center; }
 .benefit:hover { border-color: rgba(0, 190, 130, .5); box-shadow: var(--shadow); }
 .benefit .emoji { font-size: 26px; display: block; margin-bottom: 6px; }
 
+.recruit-media {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.recruit-media figure {
+  margin: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.recruit-media img, .recruit-media video {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background: #000;
+}
+.recruit-media figcaption {
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--ink-light);
+  text-align: center;
+}
+
 /* ---------- 法規分享 ---------- */
 .info-banner {
   background: var(--brand-pale);

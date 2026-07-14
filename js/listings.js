@@ -6,7 +6,11 @@ var SAMPLE_LISTINGS = [
   { type: 'buy', real: true, href: 'yangsheng.html',
     title: '揚昇君苑 高樓河景美三房', area: '松山區', address: '台北市松山區松河街168號',
     size: '85.52坪', layout: '3房2廳3衛', price: 10800, priceUnit: '萬', tag: '河景第一排',
-    img: 'img/揚升/S__15515765_0.jpg', lat: 25.0516, lng: 121.5734 }
+    img: 'img/揚升/S__15515765_0.jpg', lat: 25.0516, lng: 121.5734 },
+  { type: 'buy', real: true, href: 'jingqi.html',
+    title: '台北晶麒 西門龍山寺捷運宅', area: '萬華區', address: '台北市萬華區康定路',
+    size: '依戶別而定', layout: '1~3房', price: 1395, priceUnit: '萬起', tag: '近西門捷運',
+    img: 'img/晶麒/1-1.png', lat: 25.0388, lng: 121.5040 }
 ];
 
 var HOUSE_SVG = '<svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>';
