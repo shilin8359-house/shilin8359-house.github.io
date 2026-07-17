@@ -82,7 +82,7 @@
         if (item.area === cond.area) score += 3;
         else return null; /* 指定區域則嚴格過濾 */
       }
-      if (cond.budget && item.price > cond.budget.value) return null;
+      if (cond.budget && item.price && item.price > cond.budget.value) return null;
       if (cond.rooms) {
         if (item.layout.indexOf(cond.rooms + '房') !== -1) score += 3;
         else score -= 1;
@@ -157,8 +157,7 @@
     return '<a class="ai-result" href="' + href + '">' +
       '<div class="r-title">' + item.title + badge + '</div>' +
       '<div class="r-meta">' + item.area + '｜' + item.size + '｜' + item.layout + '</div>' +
-      '<div class="r-price">' + item.price.toLocaleString('zh-TW') +
-      '<small> ' + item.priceUnit + '</small></div>' +
+      '<div class="r-price">' + (item.price ? (item.price.toLocaleString('zh-TW') + '<small> ' + item.priceUnit + '</small>') : '<small>價格請洽業務</small>') + '</div>' +
       '</a>';
   }
 

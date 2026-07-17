@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
         iconAnchor: [15, 28],
         popupAnchor: [0, -24]
       });
-      var priceText = item.price.toLocaleString('zh-TW') + ' ' + item.priceUnit;
+      var priceText = item.price ? (item.price.toLocaleString('zh-TW') + ' ' + item.priceUnit) : '價格請洽業務';
       var popup;
       if (item.real) {
         popup = '<div class="map-popup"><div style="color:#008c46; font-size:12px; font-weight:700;">★ 精選物件（實際銷售中）</div>' +
