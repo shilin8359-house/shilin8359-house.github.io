@@ -1881,6 +1881,56 @@ table.law-table tr:last-child td { border-bottom: none; }
 .cta-band .btn { background: var(--grad); color: #fff; }
 .cta-band .btn:hover { filter: brightness(1.1); }
 
+/* ---------- 比房網店鋪 ---------- */
+.shop-band {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 20px;
+  background: linear-gradient(120deg, #f5a623 0%, #f7931e 55%, #f2632a 100%);
+}
+.shop-band-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.shop-band-icon {
+  font-size: 56px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .18));
+}
+.shop-band-text h2 {
+  font-size: 28px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+}
+.shop-band-text p {
+  color: #fff8ee;
+  font-size: 15px;
+}
+.shop-band-btn {
+  background: #fff;
+  color: #e2650f;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .2);
+  white-space: nowrap;
+}
+.shop-band-btn:hover {
+  background: #fff4e2;
+  filter: none;
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  .shop-band-inner { flex-direction: column; gap: 16px; }
+  .shop-band-icon { font-size: 44px; }
+  .shop-band-text h2 { font-size: 22px; }
+}
+
 /* ---------- 頁尾 ---------- */
 footer.site-footer {
   background: var(--navy);
