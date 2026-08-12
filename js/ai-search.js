@@ -191,11 +191,11 @@
         addMsg('bot', '想看完整列表可以到' +
           '<a href="' + more + '" style="color:#4ef0b6; font-weight:700;">' +
           (cond.mode === 'rent' ? '租屋頁' : '買屋頁') + '</a>，' +
-          '或直接來電 <strong>0911-107-769</strong>，由在地經紀人為你服務！');
+          '或直接來電 <strong>0986-292-489</strong>，由在地經紀人為你服務！');
       } else {
         addMsg('bot', '目前站上沒有完全符合的物件，' +
           '但我們的經紀人手上物件更多！歡迎<a href="contact.html" style="color:#4ef0b6; font-weight:700;">留下需求</a>' +
-          '或來電 <strong>0911-107-769</strong>，讓專人為你配對。');
+          '或來電 <strong>0986-292-489</strong>，讓專人為你配對。');
       }
       scrollLog();
     }, 700 + Math.random() * 400);
